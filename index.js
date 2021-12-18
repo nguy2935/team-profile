@@ -5,6 +5,28 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Inern = require("./lib/Intern");
 
+const render = require("./lib/htmlRenderer");
+
+const team = [];
+addToTeam();
+
+// team builder
+addToTeam() {
+    inquirer.prompt([
+    {
+        type: "list",
+        name: "addEmployee",
+        message: "Add an employee, or select 'Done.'.",
+        choices: [
+            "Manager",
+            "Engineer",
+            "Intern",
+            "Done"
+            ]
+        }
+    ])
+}
+
 // enter engineer's info when prompt
 inquirer.promopt([
     {
