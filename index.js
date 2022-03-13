@@ -101,7 +101,7 @@ function addManager() {
 
 ]).then(({ name, id, email, officeNumber }) => {
     const manager = new Manager(name, id, email, officeNumber);
-    teamArray.push(manager);
+    team.push(manager);
     addToTeam();
 });
 
@@ -140,7 +140,7 @@ function addEngineer() {
         message: "Engineer's Github username:"
     }.then(({ name, id, email, github }) => {
         const engineer = new Engineer(name, id, email, github);
-        teamArray.push(engineer);
+        team.push(engineer);
         addToTeam();
     })
 ])
@@ -195,7 +195,7 @@ function addIntern () {
         }
     ]).then(({name, id, email, school }) => {
         const intern = new Intern(name, id, email, school);
-        teamArray.push(Intern);
+        team.push(Intern);
         addToTeam();
     }))
 }}
