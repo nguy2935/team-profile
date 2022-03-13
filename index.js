@@ -68,7 +68,7 @@ function addManager() {
         validate: idInput => {
             if(idInput) {
                 return true;
-            }
+            } else {
             console.log("You must provide the Manager's ID!");
             return false;
         }
@@ -108,11 +108,21 @@ function addManager() {
 }
 
 // enter engineer's info when prompt
-const addEngineer = inquirer.promopt([
+function addEngineer() {
+    inquirer.prompt([
     {
         type: "input",
         name: "engineerName",
-        message: "Engineer's Name:"
+        message: "Engineer's Name:",
+        validate: nameInput => {
+            if(nameInput) {
+                return true;
+            }
+            else {
+                console.log("Enter the Engineer's name.");
+                return false;
+            }
+        }
     },
     {
         type: "input",
@@ -128,7 +138,11 @@ const addEngineer = inquirer.promopt([
         type: "input",
         name: "engineerGithub",
         message: "Engineer's Github username:"
-    }
+    }.then(({ name, id, email, github }) => {
+        const engineer = new Engineer(name, id, email, github);
+        teamArray.push(engineer);
+        addToTeam();
+    })
 ])
 
 // intern
