@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #9eb8ff;
+    --secondary: #e889aa;
+}
+
+#navbar {
+    background-color: var(--primary);
+    color: var(--secondary);
+    font-size:50px;
+}
+
+.container {
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-evenly;
+}
