@@ -62,7 +62,7 @@ function addManager() {
         }
     },
     {
-        type: "input",
+        type: "number",
         name: "id",
         message: "Enter the Manager's ID.",
         validate: idInput => {
@@ -125,7 +125,7 @@ function addEngineer() {
         }
     },
     {
-        type: "input",
+        type: "number",
         name: "engineerId",
         message: "Engineer's ID:"
     },
@@ -147,4 +147,55 @@ function addEngineer() {
 
 // intern
 
-const addIntern =
+function addIntern () {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "intern",
+            message: "What is the Intern's name?",
+            validate: internName => {
+                if(internName) {
+                    return true;
+                }
+                else {
+                    console.log("Enter the Intern's name.");
+                    return false;
+                }
+            },
+            {
+                type: "input",
+                name: "id",
+                message: "Enter the Intern's ID",
+                validate: internID => {
+                    if(internID) {
+                        return true;
+                    }
+                    else {
+                        console.log("Enter the Intern's ID.");
+                    }
+                },
+            {
+                type: "input",
+                name: "email",
+                message: "Enter the Intern's email.";
+                validate: emailInput => {
+                    valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                    if(emailInput) {
+                        return true;
+                    }
+                    console.log("Enter the manager's email.");
+                    return false;
+                }
+            {
+                type: "input",
+                name: "college",
+                message: "Enter the intern's current school.";
+            }
+        }
+        }
+    ]).then(({name, id, email, college }) => {
+        const intern = new Intern(name, id, email, college);
+        teamArray.push(Intern);
+        addToTeam();
+    }))
+}}
