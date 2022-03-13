@@ -177,7 +177,7 @@ function addIntern () {
             {
                 type: "input",
                 name: "email",
-                message: "Enter the Intern's email.";
+                message: "Enter the Intern's email."
                 validate: emailInput => {
                     valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
                     if(emailInput) {
@@ -188,13 +188,13 @@ function addIntern () {
                 }
             {
                 type: "input",
-                name: "college",
-                message: "Enter the intern's current school.";
+                name: "school",
+                message: "Enter the intern's current school."
             }
         }
         }
-    ]).then(({name, id, email, college }) => {
-        const intern = new Intern(name, id, email, college);
+    ]).then(({name, id, email, school }) => {
+        const intern = new Intern(name, id, email, school);
         teamArray.push(Intern);
         addToTeam();
     }))
